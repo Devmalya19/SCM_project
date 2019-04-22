@@ -248,4 +248,42 @@ void single_llist::search()
 
 }
 
+/*
+
+ * Reverse Link List
+
+ */
+
+void single_llist::reverse()
+
+{
+
+    struct node *ptr1, *ptr2, *ptr3;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"List is empty"<<endl;
+
+        return;
+
+    }
+
+    if (start->next == NULL)
+
+    {
+
+        return;
+
+    } 
+
+    ptr1 = start;
+
+    ptr2 = ptr1->next;
+
+    ptr3 = ptr2->next;
+
+    ptr1->next = NULL;
+}
 
