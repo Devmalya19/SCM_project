@@ -120,6 +120,7 @@ main()
 
 
 
+
 /*
 
  * Insertion of node at a given position
@@ -206,11 +207,96 @@ void single_llist::insert_pos()
 
         temp->next = s;
 
+//Hello, my name is Devansh Markan and I am one of the collaborators for Devmalya's project
+//This code is implemented for creating node in singly linked list
+
+
+
+
+/*
+
+ * Creating Node
+
+ */
+
+node *single_llist::create_node(int value)
+
+{
+
+    struct node *temp, *s;
+
+    temp = new(struct node);
+
+    if (temp == NULL)
+
+    {
+
+        cout<<"Memory not allocated "<<endl;
+
+        return 0;
+
     }
 
     else
 
     {
+
+        temp->info = value;
+
+        temp->next = NULL;
+
+        return temp;
+
+    }
+
+}
+
+
+
+
+
+//Inserting Node in the beginning of Singly Linked list
+
+//insert_begin() will push the node element in the beginning of linked list
+
+
+
+
+/*
+
+ * Inserting element in beginning
+
+ */
+
+void single_llist::insert_begin()
+
+{
+
+    int value;
+
+    cout<<"Enter the value to be inserted: ";
+
+    cin>>value;
+
+    struct node *temp, *p;
+
+    temp = create_node(value);
+
+    if (start == NULL)
+
+    {
+
+        start = temp;
+
+        start->next = NULL;
+
+
+    }
+
+    else
+
+    {
+
 
         cout<<"Positon out of range"<<endl;
 
@@ -292,3 +378,60 @@ void single_llist::delete_pos()
         cout<<"List is empty"<<endl;
 
         return
+
+        p = start;
+
+        start = temp;
+
+        start->next = p;
+
+    }
+
+    cout<<"Element Inserted at beginning"<<endl;
+
+}
+
+
+//Insertion of the note in the end of the linked list
+//Modification of the previous code and adding more options now
+
+
+/*
+
+ * Inserting Node at last
+
+ */
+
+void single_llist::insert_last()
+
+{
+
+    int value;
+
+    cout<<"Enter the value to be inserted: ";
+
+    cin>>value;
+
+    struct node *temp, *s;
+
+    temp = create_node(value);
+
+    s = start;
+
+    while (s->next != NULL)
+
+    {
+
+        s = s->next;
+
+    }
+
+    temp->next = NULL;
+
+    s->next = temp;
+
+    cout<<"Element Inserted at last"<<endl;
+
+}
+
+
