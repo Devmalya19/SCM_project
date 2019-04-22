@@ -116,6 +116,7 @@ main()
     }
 }
 
+
 //Animesh's part of code
 
 /*
@@ -178,9 +179,94 @@ void single_llist::update()
 
             }
 
+
+
+
+
+
+/*
+
+ * Insertion of node at a given position
+
+ */
+
+void single_llist::insert_pos()
+
+{
+
+    int value, pos, counter = 0;
+
+    cout<<"Enter the value to be inserted: ";
+
+    cin>>value;
+
+    struct node *temp, *s, *ptr;
+
+    temp = create_node(value);
+
+    cout<<"Enter the postion at which node to be inserted: ";
+
+    cin>>pos;
+
+    int i;
+
+    s = start;
+
+    while (s != NULL)
+
+    {
+
+        s = s->next;
+
+        counter++;
+
+    }
+
+    if (pos == 1)
+
+    {
+
+        if (start == NULL)
+
+        {
+
+            start = temp;
+
+            start->next = NULL;
+
+        }
+
+        else
+
+        {
+
+            ptr = start;
+
+            start = temp;
+
+            start->next = ptr;
+
+        }
+
+    }
+
+    else if (pos > 1  && pos <= counter)
+
+    {
+
+        s = start;
+
+        for (i = 1; i < pos; i++)
+
+        {
+
+            ptr = s;
+
+
             s = s->next;
 
         }
+
 
         s->info = value;
 
@@ -203,10 +289,90 @@ void single_llist::search()
     int value, pos = 0;
 
     bool flag = false;
+        ptr->next = temp;
+
+        temp->next = s;
+
+//Hello, my name is Devansh Markan and I am one of the collaborators for Devmalya's project
+//This code is implemented for creating node in singly linked list
+
+
+
+
+/*
+
+ * Creating Node
+
+ */
+
+node *single_llist::create_node(int value)
+
+{
+
+    struct node *temp, *s;
+
+    temp = new(struct node);
+
+    if (temp == NULL)
+
+    {
+
+        cout<<"Memory not allocated "<<endl;
+
+        return 0;
+
+    }
+
+    else
+
+    {
+
+        temp->info = value;
+
+        temp->next = NULL;
+
+        return temp;
+
+    }
+
+}
+
+
+
+
+
+//Inserting Node in the beginning of Singly Linked list
+
+//insert_begin() will push the node element in the beginning of linked list
+
+
+
+
+/*
+
+ * Inserting element in beginning
+
+ */
+
+void single_llist::insert_begin()
+
+{
+
+    int value;
+
+    cout<<"Enter the value to be inserted: ";
+
+    cin>>value;
+
+    struct node *temp, *p;
+
+    temp = create_node(value);
+
 
     if (start == NULL)
 
     {
+
 
         cout<<"List is empty"<<endl;
 
@@ -246,9 +412,81 @@ void single_llist::search()
 
         cout<<"Element "<<value<<" not found in the list"<<endl; 
 
+        start = temp;
+
+        start->next = NULL;
+
+
+    }
+
+    else
+
+    {
+
+
+        cout<<"Positon out of range"<<endl;
+
+    }
+
+}
+
+
+/*
+
+ * Sorting Link List
+
+ */
+
+void single_llist::sort()
+
+{
+
+    struct node *ptr, *s;
+
+    int value;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"The List is empty"<<endl;
+
+        return;
+
+    }
+
+    ptr = start;
+
+    while (ptr != NULL)
+
+    {
+
+        for (s = ptr->next;s !=NULL;s = s->next)
+
+        {
+
+            if (ptr->info > s->info)
+
+            {
+
+                value = ptr->info;
+
+                ptr->info = s->info;
+
+                s->info = value;
+
+            }
+
+        }
+
+        ptr = ptr->next;
+
+    }
+
 }
 
 /*
+
 
  * Reverse Link List
 
@@ -260,11 +498,23 @@ void single_llist::reverse()
 
     struct node *ptr1, *ptr2, *ptr3;
 
+ * Delete element at a given position
+
+ */
+
+void single_llist::delete_pos()
+
+{
+
+    int pos, i, counter = 0;
+
+
     if (start == NULL)
 
     {
 
         cout<<"List is empty"<<endl;
+
 
         return;
 
@@ -287,3 +537,62 @@ void single_llist::reverse()
     ptr1->next = NULL;
 }
 //Ending of code
+        return
+
+        p = start;
+
+        start = temp;
+
+        start->next = p;
+
+    }
+
+    cout<<"Element Inserted at beginning"<<endl;
+
+}
+
+
+//Insertion of the note in the end of the linked list
+//Modification of the previous code and adding more options now
+
+
+/*
+
+ * Inserting Node at last
+
+ */
+
+void single_llist::insert_last()
+
+{
+
+    int value;
+
+    cout<<"Enter the value to be inserted: ";
+
+    cin>>value;
+
+    struct node *temp, *s;
+
+    temp = create_node(value);
+
+    s = start;
+
+    while (s->next != NULL)
+
+    {
+
+        s = s->next;
+
+    }
+
+    temp->next = NULL;
+
+    s->next = temp;
+
+    cout<<"Element Inserted at last"<<endl;
+
+}
+
+
+
