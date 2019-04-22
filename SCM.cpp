@@ -286,4 +286,4 @@ void single_llist::reverse()
 
     ptr1->next = NULL;
 }
-
+//Ending of code
