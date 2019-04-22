@@ -272,3 +272,23 @@ void single_llist::sort()
     }
 
 }
+
+/*
+
+ * Delete element at a given position
+
+ */
+
+void single_llist::delete_pos()
+
+{
+
+    int pos, i, counter = 0;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"List is empty"<<endl;
+
+        return
