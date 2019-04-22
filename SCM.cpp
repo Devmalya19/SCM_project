@@ -117,6 +117,69 @@ main()
 }
 
 
+//Animesh's part of code
+
+/*
+
+ * Update a given Node
+
+ */
+
+void single_llist::update()
+
+{
+
+    int value, pos, i;
+
+    if (start == NULL)
+
+    {
+
+        cout<<"List is empty"<<endl;
+
+        return;
+
+    }
+
+    cout<<"Enter the node postion to be updated: ";
+
+    cin>>pos;
+
+    cout<<"Enter the new value: ";
+
+    cin>>value;
+
+    struct node *s, *ptr;
+
+    s = start;
+
+    if (pos == 1)
+
+    {
+
+        start->info = value;
+
+    }
+
+    else
+
+    {
+
+        for (i = 0;i < pos - 1;i++)
+
+        {
+
+            if (s == NULL)
+
+            {
+
+                cout<<"There are less than "<<pos<<" elements";
+
+                return;
+
+            }
+
+
 
 
 
@@ -199,10 +262,33 @@ void single_llist::insert_pos()
 
             ptr = s;
 
+
             s = s->next;
 
         }
 
+
+        s->info = value;
+
+    }
+
+    cout<<"Node Updated"<<endl;
+
+}
+
+/*
+
+ * Searching an element
+
+ */
+
+void single_llist::search()
+
+{
+
+    int value, pos = 0;
+
+    bool flag = false;
         ptr->next = temp;
 
         temp->next = s;
@@ -282,9 +368,49 @@ void single_llist::insert_begin()
 
     temp = create_node(value);
 
+
     if (start == NULL)
 
     {
+
+
+        cout<<"List is empty"<<endl;
+
+        return;
+
+    }
+
+    cout<<"Enter the value to be searched: ";
+
+    cin>>value;
+
+    struct node *s;
+
+    s = start;
+
+    while (s != NULL)
+
+    {
+
+        pos++;
+
+        if (s->info == value)
+
+        {
+
+            flag = true;
+
+            cout<<"Element "<<value<<" is found at position "<<pos<<endl;
+
+        }
+
+        s = s->next;
+
+    }
+
+    if (!flag)
+
+        cout<<"Element "<<value<<" not found in the list"<<endl; 
 
         start = temp;
 
@@ -361,6 +487,17 @@ void single_llist::sort()
 
 /*
 
+
+ * Reverse Link List
+
+ */
+
+void single_llist::reverse()
+
+{
+
+    struct node *ptr1, *ptr2, *ptr3;
+
  * Delete element at a given position
 
  */
@@ -371,12 +508,35 @@ void single_llist::delete_pos()
 
     int pos, i, counter = 0;
 
+
     if (start == NULL)
 
     {
 
         cout<<"List is empty"<<endl;
 
+
+        return;
+
+    }
+
+    if (start->next == NULL)
+
+    {
+
+        return;
+
+    } 
+
+    ptr1 = start;
+
+    ptr2 = ptr1->next;
+
+    ptr3 = ptr2->next;
+
+    ptr1->next = NULL;
+}
+//Ending of code
         return
 
         p = start;
@@ -433,5 +593,6 @@ void single_llist::insert_last()
     cout<<"Element Inserted at last"<<endl;
 
 }
+
 
 
